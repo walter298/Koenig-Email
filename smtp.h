@@ -2,7 +2,6 @@
 #include <chrono>
 #include <fstream>
 #include <string>
-#include <ranges>
 #include <vector>
 
 #include "curl/curl.h"

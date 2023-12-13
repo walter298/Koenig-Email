@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <curl/curl.h>
-
 #include "smtp.h"
 
 koenig::Instance::Instance() noexcept {
@@ -37,9 +33,11 @@ std::string koenig::Email::getPayload() noexcept {
     constexpr size_t headerNamesSize = 36; //space taken up by "To: ", "Subject: ", etc
     auto totalEmailSize = headerNamesSize + ID.size();
     totalEmailSize += sender.size();
-    for (const auto& [recipient, ccRecipient] : std::views::zip(recipients, ccRecipients)) {
+    for (const auto& recipient : recipients) {
         totalEmailSize += recipient.size();
-        totalEmailSize += ccRecipient.size();
+    }
+    for (const auto& recipient : ccRecipients) {
+        totalEmailSize += recipient.size();
     }
     totalEmailSize += subject.size();
     totalEmailSize += body.size();
@@ -186,5 +184,8 @@ int main(void) {
     email.embedHTML(workingDirectory + "/html_ex.html");
     auto res = email.send(false); //pass true if you want debug information to be printed 
     
+    if (!res) {
+        //std::cerr << res.what() << '\n';
+    }
     return 0;
 }
