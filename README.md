@@ -10,6 +10,9 @@ I can't find a single other C++ library that sends email and is actually easy to
 1. Libcurl should be linked
 2. A working C++20 Compiler and Standard Library
 
+**Current Capabilities**
+Emails can contain plain text or embedded HTML. You can't yet add attachments. 
+
 **Example**
 
 ```cpp
