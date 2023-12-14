@@ -4,7 +4,7 @@ This is a very simple C++ SMTP Client library, wrapped around libcurl. You const
 
 **Motivation**
 
-I can't find a single other C++ library that sends email and is actually easy to use. Libcurl is fantastic but is written in C. VMime is complex, very difficult to set up on Windows, and is not compatible with post C++14 versions. POCO is aggressively boilerplate-OOP style. I wanted a modern, simple, understandable library where you can send email as easily as you could in Python. 
+I can't find a single other C++ library that sends email and is actually easy to use. Libcurl is fantastic but is quite low level. VMime is complex, not trivial to set up (at least on Windows), and is not compatible with post C++14 versions. POCO is aggressively boilerplate-OOP style. I wanted a modern, simple, understandable library where you can send email as easily as you could in Python. 
 
 **Requirements to Set Up**
 1. Libcurl should be linked
