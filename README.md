@@ -14,6 +14,9 @@ I can't find a single other C++ library that sends email and is actually easy to
 
 
 ```cpp
+
+#include <iostream>
+
 #include "smtp.h"
 
 int main(void) {
@@ -30,7 +33,7 @@ int main(void) {
     email.subject = "Example Email";
     email.body = "It seems you've been living two lives";
     email.embedHTML("html_ex.html");
-    auto res = email.send(false); //pass true if you want debug information to be printed 
+    auto res = email.send(false); //default argument is true if you want debug information to be printed 
 
     if (!res) {
         std::cerr << res.what() << '\n';
